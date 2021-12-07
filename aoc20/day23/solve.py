@@ -60,15 +60,9 @@ class CircleList:
     node.neighbour_right = right
     return retval
 
-if __name__ == "__main__":
-  cup = list('716892543')
-  cup = list('389125467')
-  cup = [int(d) for d in cup]
-  MOVE = 10000000
-  MAX = max(cup)
-  for i in range(MAX+1, 10**6+1):
-    cup.append(i)  
-  cl = CircleList(cup)
+def solve(lst, MOVE):
+  MAX = max(lst)
+  cl = CircleList(lst)
   for i in range(MOVE):
     pick = []
     curr = cl.current
@@ -94,3 +88,13 @@ if __name__ == "__main__":
   print(dest.neighbour_right.value)
   print(dest.neighbour_right.neighbour_right.value)
   print(dest.neighbour_right.value * dest.neighbour_right.neighbour_right.value)
+
+
+if __name__ == "__main__":
+  cup = list('716892543')
+  test = list('389125467')
+  cup = [int(d) for d in cup]
+  test = [int(d) for d in test]
+  for i in range(max(cup)+1, 10**6+1):
+    cup.append(i)  
+  solve(cup, 10000000)
