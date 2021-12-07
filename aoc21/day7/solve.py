@@ -9,6 +9,6 @@ print(MAX, MIN)
 
 ret = []
 for i in range(MIN, MAX+1):
-  ret.append(sum([sum(range(1, abs(i-l)+1)) for l in lst])) 
+  ret.append(sum([abs(i-l)*(abs(i-l)+1)/2 for l in lst])) 
 
 print(min(ret))
