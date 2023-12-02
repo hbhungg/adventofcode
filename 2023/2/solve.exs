@@ -23,7 +23,7 @@ end
 
 p1 =
   contents
-  |> Enum.map(&(String.split(&1, ":") |> Enum.at(1)))
+  # |> Enum.map(&(String.split(&1, ":") |> Enum.at(1)))
   |> Enum.map(&String.split(&1, ";"))
   |> Enum.map(&Count.count_color/1)
   |> Enum.with_index()
@@ -37,3 +37,14 @@ p1 =
 
 
 IO.inspect(p1)
+
+p2 =
+  contents
+  |> Enum.map(fn x -> Count.count_color([x]) end)
+  |> Enum.reduce(0, fn ele, acc ->
+    acc + (ele |> hd() |> Map.to_list() |> Enum.reduce(1, fn { _, val }, a -> 
+      a * val
+    end))
+  end)
+
+IO.inspect(p2)
