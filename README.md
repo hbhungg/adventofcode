@@ -1,3 +1,5 @@
-# Advent of code lets goo
+# Advent of Code letsgoo
 
-Now doing 2021
+LETSGOO
+
+Just some advent of code bro
